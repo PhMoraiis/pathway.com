@@ -1,27 +1,21 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "_version": "22.0.0",
+
   "compilerOptions": {
-    "target": "es2016",
-    "module": "commonjs",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
+    "lib": ["es2023"],
+    "module": "CommonJS",
+    "target": "es2022",
+
     "strict": true,
+    "esModuleInterop": true,
     "skipLibCheck": true,
     "allowJs": true,
-    "noEmit": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "incremental": true,
+    "baseUrl": "./",
     "paths": {
-      "@/*": [
-        "./*"
-      ]
+      "@/*": ["./src/*"]
     }
   },
-  "include": [
-    "**/*.ts",
-    "**/*.tsx",
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }

@@ -1,0 +1,18 @@
+meta {
+  name: Update User By ID
+  type: http
+  seq: 6
+}
+
+put {
+  url: http://localhost:3000/users/cm18h5l050000hsiph8otno8o
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "Philipe Morais",
+    "email": "liperapltda@gmail.com"
+  }
+}
