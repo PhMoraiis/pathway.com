@@ -1,0 +1,86 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String      @id @default(cuid())
+  name          String
+  email         String      @unique
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  emailVerified DateTime?
+  password      String
+  authTokens    AuthToken[]
+  Goal          Goal[]
+
+  @@map("users")
+}
+
+model AuthToken {
+  id        String   @id @default(cuid())
+  userId    String
+  token     String   @unique
+  createdAt DateTime @default(now())
+  expiresAt DateTime
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("auth_tokens")
+}
+
+model VerificationToken {
+  identifier String
+  token      String
+  expires    DateTime
+
+  @@id([identifier, token])
+  @@map("verification_tokens")
+}
+
+model Goal {
+  id           String           @id @default(cuid())
+  title        String
+  valueTarget  Int
+  currentValue Int
+  colorCard    String
+  createdAt    DateTime         @default(now())
+  updatedAt    DateTime         @updatedAt
+  ownerId      String
+  completions  GoalCompletion[]
+  owner        User             @relation(fields: [ownerId], references: [id])
+  Transaction  Transaction[]
+
+  @@map("goals")
+}
+
+model GoalCompletion {
+  id        String   @id @default(cuid())
+  goalId    String
+  createdAt DateTime @default(now())
+  goal      Goal     @relation(fields: [goalId], references: [id])
+
+  @@map("goal_completions")
+}
+
+model Transaction {
+  id          String          @id @default(cuid())
+  type        TransactionType
+  amount      Int
+  title       String
+  description String
+  goalId      String?
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+  goal        Goal?           @relation(fields: [goalId], references: [id])
+
+  @@map("transactions")
+}
+
+enum TransactionType {
+  income
+  expense
+}
