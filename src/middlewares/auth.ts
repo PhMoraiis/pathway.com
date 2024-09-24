@@ -1,23 +1,19 @@
-import { cookies } from 'next/headers'
-import type { NextRequest } from 'next/server'
-import { NextResponse } from 'next/server'
-import * as jose from 'jose'
-import { env } from '@/lib/env'
+import { getUrl } from '@/lib/getUrl'
+import { NextResponse, type NextRequest } from 'next/server'
 
-export async function middleware(request: NextRequest) {
-  const cookie = cookies().get('token')
-  if (!cookie) return NextResponse.redirect(new URL('/', request.url))
+export function middleware(request: NextRequest){
+  const token = request.cookies.get('authjs.session-token')
+  const pathname = request.nextUrl.pathname
 
-  const secret = new TextEncoder().encode(env.JWT_SECRET)
-  const jwt = cookie.value
+  if (pathname === '/auth' && token) {
+    return NextResponse.redirect(new URL(getUrl('/dasboard')))
+  }
 
-  try {
-    await jose.jwtVerify(jwt, secret, {})
-  } catch (error) {
-    return NextResponse.redirect(new URL('/', request.url))
+  if (pathname.includes('/dasboard') && !token) {
+    return NextResponse.redirect(new URL(getUrl('/auth')))
   }
 }
 
 export const config = {
-  matcher: '/dashboard/:path*',
+  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
 }
