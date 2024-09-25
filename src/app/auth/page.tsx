@@ -11,23 +11,39 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import { Label } from '@/components/ui/label'
-import { Ban, Check, Github, MailIcon } from 'lucide-react'
+import { ArrowLeft, Ban, Check, Github, LoaderPinwheel, WandSparkles } from 'lucide-react'
 import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
 import { signIn } from 'next-auth/react'
 import { useToast } from '@/hooks/use-toast'
 import { GoogleIcon } from '@/components/google-icon'
+import { Separator } from '@/components/ui/separator'
+import { PathwayLogo } from '@/components/pathway-logo'
+import Link from 'next/link'
+import { z } from 'zod'
+import { useRouter } from 'next/navigation'
+
+const magicLinkSchema = z.object({
+  email: z.string().email({ message: 'Invalid email' }),
+})
 
 export default function Auth() {
-  const form = useForm()
+  const {
+    handleSubmit,
+    register,
+    formState: { isSubmitting, isDirty, isValid },
+  } = useForm({
+    resolver: zodResolver(magicLinkSchema),
+  })
   const { toast } = useToast()
+  const router = useRouter()
 
-  const handleSubmit = form.handleSubmit(async data => {
+  const handleSubmitEmail = handleSubmit(async data => {
     try {
       await signIn('nodemailer', {
         email: data.email,
         redirect: false,
       })
-      console.log(data)
 
       toast({
         title: 'Magic link sent',
@@ -37,7 +53,8 @@ export default function Auth() {
         action: <Check />,
       })
 
-      form.reset()
+      // @ts-ignore
+      document.getElementById('magic-link').reset()
     } catch (error) {
       toast({
         title: 'Error sending magic link',
@@ -49,53 +66,98 @@ export default function Auth() {
   })
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <Card className="w-[350px]">
-        <CardHeader>
-          <CardTitle>Authentication</CardTitle>
-          <CardDescription>
-            Choose your preferred method to sign in
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <form id="magic-link" onSubmit={handleSubmit}>
-            <div className="grid w-full items-center gap-4">
-              <div className="flex flex-col space-y-1.5">
+    <div className="min-h-screen bg-zinc-100 relative">
+      <Button
+        onClick={() => router.push('/')}
+        variant="ghost"
+        className="absolute top-4 left-4 rounded-2xl gap-2 hover:bg-zinc-200"
+        aria-label="Go to home page"
+      >
+        <ArrowLeft /> Home
+      </Button>
+      <div className="min-h-screen flex items-center justify-center bg-zinc-100">
+        <Card className="w-full max-w-lg border-none shadow-none bg-zinc-100">
+          <CardHeader className="space-y-1">
+            <div className="flex justify-start mb-6">
+              <PathwayLogo />
+            </div>
+            <CardTitle className="text-2xl font-bold">
+              Enter in Pathway
+            </CardTitle>
+            <CardDescription>
+              The real financial revolution starts here.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <form id="magic-link" onSubmit={handleSubmitEmail}>
+              <div className="space-y-2">
                 <Label htmlFor="email">Email</Label>
                 <Input
                   id="email"
-                  placeholder="Enter your email"
+                  placeholder="ada.lovelace@example.com"
                   type="email"
                   required
                   autoFocus
                   autoComplete="email"
-                  {...form.register('email')}
+                  {...register('email')}
                 />
               </div>
+              <Button
+                disabled={!isDirty || !isValid || isSubmitting}
+                type="submit"
+                className="w-full mt-4 gap-4"
+              >
+                {isSubmitting ? (
+                  <LoaderPinwheel size={22} className="animate-spin" />
+                ) : (
+                  <>
+                    Send Magic Link
+                    <WandSparkles className="mr-2 h-4 w-4" />
+                  </>
+                )}
+              </Button>
+            </form>
+            <Separator />
+            <div className="space-y-2">
+              <Button
+                onClick={() => signIn('github')}
+                variant="outline"
+                className="w-full"
+              >
+                <Github className="mr-2 h-4 w-4" />
+                Continue with GitHub
+              </Button>
+              <Button
+                onClick={() => signIn('google')}
+                variant="outline"
+                className="w-full"
+              >
+                <GoogleIcon />
+                Continue with Google
+              </Button>
             </div>
-          </form>
-        </CardContent>
-        <CardFooter className="flex flex-col">
-          <Button type="submit" form="magic-link" className="w-full mb-2">
-            <MailIcon className="mr-2 h-4 w-4" /> Sign in with Magic Link
-          </Button>
-          <Button
-            onClick={() => signIn('github')}
-            variant="outline"
-            className="w-full mb-2"
-          >
-            <Github className="mr-2 h-4 w-4" /> Sign in with GitHub
-          </Button>
-          <Button
-            onClick={() => signIn('google')}
-            variant="outline"
-            className="w-full"
-          >
-            <GoogleIcon />
-            Sign in with Google
-          </Button>
-        </CardFooter>
-      </Card>
+          </CardContent>
+          <CardFooter className="flex">
+            <p className="text-sm text-muted-foreground">
+              By signing in, you agree to our{' '}
+              <Link
+                className="text-blue-600 hover:underline duration-200"
+                href={'/terms'}
+              >
+                Terms of Service
+              </Link>{' '}
+              and{' '}
+              <Link
+                className="text-blue-600 hover:underline duration-200"
+                href={'/privacy'}
+              >
+                Privacy Policy
+              </Link>
+              .
+            </p>
+          </CardFooter>
+        </Card>
+      </div>
     </div>
   )
 }
