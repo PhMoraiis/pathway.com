@@ -76,22 +76,24 @@ export default function Auth() {
         <ArrowLeft /> Home
       </Button>
       <div className="min-h-screen flex items-center justify-center bg-zinc-100">
-        <Card className="w-full max-w-lg border-none shadow-none bg-zinc-100">
+        <Card className="w-full max-w-md border-none shadow-none bg-zinc-100">
           <CardHeader className="space-y-1">
             <div className="flex justify-start mb-6">
               <PathwayLogo />
             </div>
-            <CardTitle className="text-2xl font-bold">
+            <CardTitle className="text-3xl font-semibold">
               Enter in Pathway
             </CardTitle>
-            <CardDescription>
-              The real financial revolution starts here.
+            <CardDescription className="text-md">
+              Take the first step towards true financial freedom and success.
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <form id="magic-link" onSubmit={handleSubmitEmail}>
               <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
+                <Label htmlFor="email" className="text-md font-semibold">
+                  Email
+                </Label>
                 <Input
                   id="email"
                   placeholder="ada.lovelace@example.com"
