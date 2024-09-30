@@ -1,9 +1,9 @@
 'use client'
 
-import Sidebar from "@/components/sidebar"
-
 export default function Home() {
   return (
-    <Sidebar />
+    <div>
+      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+    </div>
   )
 }

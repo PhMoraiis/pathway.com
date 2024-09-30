@@ -15,6 +15,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     signOut: '/auth',
     error: '/auth',
     verifyRequest: '/auth',
+    newUser: '/app',
   },
   providers: [
     // Resend({

@@ -2,12 +2,10 @@ import Link from 'next/link'
 import {
   Home,
   LineChart,
-  Package,
-  Package2,
   PanelLeft,
+  Route,
   Search,
-  ShoppingCart,
-  Users2,
+  WalletMinimal,
 } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
@@ -43,7 +41,7 @@ export default function Sidebar() {
             <Tooltip>
               <TooltipTrigger asChild>
                 <Link
-                  href="#"
+                  href="/dashboard"
                   className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8 pt-2"
                 >
                   <Home className="h-6 w-6" />
@@ -57,49 +55,35 @@ export default function Sidebar() {
             <Tooltip>
               <TooltipTrigger asChild>
                 <Link
-                  href="#"
+                  href="/dashboard/paths"
                   className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
                 >
-                  <ShoppingCart className="h-6 w-6" />
-                  <span className="sr-only">Orders</span>
+                  <Route className="h-6 w-6" />
+                  <span className="sr-only">Paths</span>
                 </Link>
               </TooltipTrigger>
-              <TooltipContent side="right">Orders</TooltipContent>
+              <TooltipContent side="right">Paths</TooltipContent>
             </Tooltip>
           </TooltipProvider>
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
                 <Link
-                  href="#"
+                  href="/dashboard/transactions"
                   className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
                 >
-                  <Package className="h-6 w-6" />
-                  <span className="sr-only">Products</span>
+                  <WalletMinimal className="h-6 w-6" />
+                  <span className="sr-only">Transactions</span>
                 </Link>
               </TooltipTrigger>
-              <TooltipContent side="right">Products</TooltipContent>
+              <TooltipContent side="right">Transactions</TooltipContent>
             </Tooltip>
           </TooltipProvider>
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
                 <Link
-                  href="#"
-                  className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
-                >
-                  <Users2 className="h-6 w-6" />
-                  <span className="sr-only">Customers</span>
-                </Link>
-              </TooltipTrigger>
-              <TooltipContent side="right">Customers</TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Link
-                  href="#"
+                  href="/dashboard/analytics"
                   className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8"
                 >
                   <LineChart className="h-6 w-6" />
@@ -126,39 +110,32 @@ export default function Sidebar() {
                   href="#"
                   className="group flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:text-base"
                 >
-                  <Package2 className="h-6 w-6 transition-all group-hover:scale-110" />
-                  <span className="sr-only">Acme Inc</span>
+                  <PathwayLogo {...{ width: 36, height: 36 }} />
+                  <span className="sr-only">Pathway</span>
                 </Link>
                 <Link
-                  href="#"
+                  href="/dashboard"
                   className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
                 >
                   <Home className="h-6 w-6" />
                   Dashboard
                 </Link>
                 <Link
-                  href="#"
+                  href="/dashboard/paths"
                   className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
                 >
-                  <ShoppingCart className="h-6 w-6" />
-                  Orders
+                  <Route className="h-6 w-6" />
+                  Paths
                 </Link>
                 <Link
-                  href="#"
+                  href="/dashboard/transactions"
                   className="flex items-center gap-4 px-2.5 text-foreground"
                 >
-                  <Package className="h-6 w-6" />
-                  Products
+                  <WalletMinimal className="h-6 w-6" />
+                  Transactions
                 </Link>
                 <Link
-                  href="#"
-                  className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
-                >
-                  <Users2 className="h-6 w-6" />
-                  Customers
-                </Link>
-                <Link
-                  href="#"
+                  href="/dashboard/analytics"
                   className="flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground"
                 >
                   <LineChart className="h-6 w-6" />
