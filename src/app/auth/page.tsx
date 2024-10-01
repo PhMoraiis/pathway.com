@@ -112,10 +112,10 @@ export default function Auth() {
                 {isSubmitting ? (
                   <LoaderPinwheel size={22} className="animate-spin" />
                 ) : (
-                  <>
+                  <div>
                     Send Magic Link
                     <WandSparkles className="mr-2 h-4 w-4" />
-                  </>
+                  </div>
                 )}
               </Button>
             </form>

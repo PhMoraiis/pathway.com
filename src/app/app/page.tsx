@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import {
+  Bell,
   Home,
   LineChart,
   Menu,
@@ -39,7 +40,7 @@ export default function Dashboard() {
 
   return (
     <div className="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
-      <div className="hidden border-r bg-background md:block">
+      <div className="hidden border-r bg-background md:block w-[220px]">
         <div className="flex h-full max-h-screen flex-col gap-6">
           <div className="flex h-14 items-center px-4 md:h-[80px] lg:h-[80px] lg:px-6">
             <Link
@@ -47,7 +48,7 @@ export default function Dashboard() {
               className="flex items-center gap-2 font-semibold text-text"
             >
               <PathwayLogo width={42} height={42} />
-              <span className="">Pathway</span>
+              <span className="uppercase">Pathway</span>
             </Link>
           </div>
           <div className="flex-1">
@@ -176,20 +177,29 @@ export default function Dashboard() {
             </SheetContent>
           </Sheet>
           <div className="w-full flex-1">
-            <form>
-              <div className="relative">
-                <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-text" />
-                <Input
-                  type="search"
-                  placeholder="Search products..."
-                  className="w-full appearance-none bg-background pl-8 shadow-none md:w-2/3 lg:w-1/3"
-                />
-              </div>
-            </form>
+            <div className="flex items-center">
+              <h1 className="text-lg font-semibold md:text-2xl text-text">
+                Paths
+              </h1>
+            </div>
           </div>
-          <div>
-            <Button onClick={() => setTheme('light')}>Light Mode</Button>
-            <Button onClick={() => setTheme('dark')}>Dark Mode</Button>
+          <div className='space-x-2'>
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+            >
+              {/* Aqui irá ficar a command bar*/}
+              <Search className="h-5 w-5" />
+            </Button>
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+            >
+              {/* Aqui irá ficar a command bar*/}
+              <Bell className="h-5 w-5" />
+            </Button>
           </div>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -210,11 +220,6 @@ export default function Dashboard() {
           </DropdownMenu>
         </header>
         <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
-          <div className="flex items-center">
-            <h1 className="text-lg font-semibold md:text-2xl text-text">
-              Paths
-            </h1>
-          </div>
           <div
             className="flex flex-1 items-center justify-center rounded-lg shadow-sm"
             x-chunk="dashboard-02-chunk-1"

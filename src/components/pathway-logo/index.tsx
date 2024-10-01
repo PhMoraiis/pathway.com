@@ -11,6 +11,16 @@ export function PathwayLogo({ width, height }: ILogoProps) {
   const [isHovered, setIsHovered] = useState(false)
   const { theme } = useTheme()
 
+  const darkColors = {
+    first: '#90BB94',
+    second: '#5347DE',
+  }
+
+  const lightColors = {
+    first: '#D67B5B',
+    second: '#E2AD5E',
+  }
+
   return (
     <svg
       width={width}
@@ -53,7 +63,7 @@ export function PathwayLogo({ width, height }: ILogoProps) {
           <motion.stop
             offset="0%"
             animate={{
-              stopColor: isHovered ? '#90BB94' : '#D67B5B',
+              stopColor: theme === 'light' ? lightColors.first : darkColors.first,
             }}
             transition={{
               duration: 0.9,
@@ -63,7 +73,7 @@ export function PathwayLogo({ width, height }: ILogoProps) {
           <motion.stop
             offset="100%"
             animate={{
-              stopColor: isHovered ? '#5347DE' : '#E2AD5E',
+              stopColor: theme === 'light' ? lightColors.second : darkColors.second,
             }}
             transition={{
               duration: 0.9,
