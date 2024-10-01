@@ -32,30 +32,36 @@ import { Input } from '@/components/ui/input'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { PathwayLogo } from '@/components/pathway-logo'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { useTheme } from 'next-themes'
 
 export default function Dashboard() {
+  const { theme, setTheme } = useTheme()
+
   return (
     <div className="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
-      <div className="hidden border-r bg-muted/40 md:block">
-        <div className="flex h-full max-h-screen flex-col gap-2">
-          <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
-            <Link href="/" className="flex items-center gap-2 font-semibold">
+      <div className="hidden border-r bg-background md:block">
+        <div className="flex h-full max-h-screen flex-col gap-6">
+          <div className="flex h-14 items-center px-4 md:h-[80px] lg:h-[80px] lg:px-6">
+            <Link
+              href="/"
+              className="flex items-center gap-2 font-semibold text-text"
+            >
               <PathwayLogo width={42} height={42} />
               <span className="">Pathway</span>
             </Link>
           </div>
           <div className="flex-1">
-            <nav className="grid items-start px-2 text-sm font-medium lg:px-4">
+            <nav className="grid items-start px-2 text-sm font-medium lg:px-4 space-y-4">
               <Link
                 href="/app"
-                className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+                className="flex items-center gap-3 rounded-lg px-3 py-2 text-text transition-all"
               >
                 <Home className="h-4 w-4" />
                 Dashboard
               </Link>
               <Link
                 href="/app/paths"
-                className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+                className="flex items-center gap-3 rounded-lg px-3 py-2 text-text transition-all"
               >
                 <Route className="h-4 w-4" />
                 Paths
@@ -65,14 +71,14 @@ export default function Dashboard() {
               </Link>
               <Link
                 href="/app/transactions"
-                className="flex items-center gap-3 rounded-lg bg-muted px-3 py-2 text-primary transition-all hover:text-primary"
+                className="flex items-center gap-3 rounded-lg bg-muted px-3 py-2 text-primary transition-all"
               >
                 <Wallet className="h-4 w-4" />
                 Transactions{' '}
               </Link>
               <Link
                 href="/app/analytics"
-                className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+                className="flex items-center gap-3 rounded-lg px-3 py-2 text-text transition-all"
               >
                 <LineChart className="h-4 w-4" />
                 Analytics
@@ -98,7 +104,7 @@ export default function Dashboard() {
         </div>
       </div>
       <div className="flex flex-col">
-        <header className="flex h-14 items-center gap-4 border-b bg-muted/40 px-4 lg:h-[60px] lg:px-6">
+        <header className="flex h-14 items-center gap-4 bg-background px-4 md:h-[80px] lg:h-[80px] lg:px-6">
           <Sheet>
             <SheetTrigger asChild>
               <Button
@@ -121,7 +127,7 @@ export default function Dashboard() {
                 </Link>
                 <Link
                   href="#"
-                  className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
+                  className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-text hover:text-foreground"
                 >
                   <Home className="h-5 w-5" />
                   Dashboard
@@ -138,14 +144,14 @@ export default function Dashboard() {
                 </Link>
                 <Link
                   href="/app/transactions"
-                  className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
+                  className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-text hover:text-foreground"
                 >
                   <Wallet className="h-5 w-5" />
                   Transactions
                 </Link>
                 <Link
                   href="/app/analytics"
-                  className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground"
+                  className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-text hover:text-foreground"
                 >
                   <LineChart className="h-5 w-5" />
                   Analytics
@@ -172,7 +178,7 @@ export default function Dashboard() {
           <div className="w-full flex-1">
             <form>
               <div className="relative">
-                <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+                <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-text" />
                 <Input
                   type="search"
                   placeholder="Search products..."
@@ -180,6 +186,10 @@ export default function Dashboard() {
                 />
               </div>
             </form>
+          </div>
+          <div>
+            <Button onClick={() => setTheme('light')}>Light Mode</Button>
+            <Button onClick={() => setTheme('dark')}>Dark Mode</Button>
           </div>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -201,17 +211,19 @@ export default function Dashboard() {
         </header>
         <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
           <div className="flex items-center">
-            <h1 className="text-lg font-semibold md:text-2xl">Paths</h1>
+            <h1 className="text-lg font-semibold md:text-2xl text-text">
+              Paths
+            </h1>
           </div>
           <div
-            className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm"
+            className="flex flex-1 items-center justify-center rounded-lg shadow-sm"
             x-chunk="dashboard-02-chunk-1"
           >
             <div className="flex flex-col items-center gap-1 text-center">
               <h3 className="text-2xl font-bold tracking-tight">
-                You have no products
+                You theme is {theme}
               </h3>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-text">
                 You can start selling as soon as you add a product.
               </p>
               <Button className="mt-4">Add Product</Button>
