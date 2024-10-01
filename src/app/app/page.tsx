@@ -187,7 +187,6 @@ export default function Dashboard() {
             <Button
               variant="outline"
               size="icon"
-              onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
             >
               {/* Aqui irá ficar a command bar*/}
               <Search className="h-5 w-5" />
@@ -195,7 +194,6 @@ export default function Dashboard() {
             <Button
               variant="outline"
               size="icon"
-              onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
             >
               {/* Aqui irá ficar a command bar*/}
               <Bell className="h-5 w-5" />
