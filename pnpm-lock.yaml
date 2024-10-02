@@ -134,9 +134,6 @@ importers:
       js-cookie:
         specifier: ^3.0.5
         version: 3.0.5
-      lucide-react:
-        specifier: ^0.445.0
-        version: 0.445.0(react@18.3.1)
       next:
         specifier: 14.2.13
         version: 14.2.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -252,6 +249,9 @@ importers:
       husky:
         specifier: ^9.1.6
         version: 9.1.6
+      lucide-react:
+        specifier: ^0.445.0
+        version: 0.445.0(react@18.3.1)
       postcss:
         specifier: ^8
         version: 8.4.47
