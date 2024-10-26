@@ -66,20 +66,20 @@ export default function Auth() {
   })
 
   return (
-    <div className="min-h-screen bg-zinc-100 relative">
+    <div className="min-h-screen relative">
       <Button
         onClick={() => router.push('/')}
         variant="ghost"
-        className="absolute top-4 left-4 rounded-2xl gap-2 hover:bg-zinc-200"
+        className="absolute top-4 left-4 rounded-2xl gap-2 hover:bg-border"
         aria-label="Go to home page"
       >
         <ArrowLeft /> Home
       </Button>
-      <div className="min-h-screen flex items-center justify-center bg-zinc-100">
-        <Card className="w-full max-w-md border-none shadow-none bg-zinc-100">
+      <div className="min-h-screen flex items-center justify-center bg-background">
+        <Card className="w-full max-w-md border-none shadow-none bg-background">
           <CardHeader className="space-y-1">
             <div className="flex justify-start mb-6">
-              <PathwayLogo />
+              <PathwayLogo {...{ width: 48, height: 48 }}  />
             </div>
             <CardTitle className="text-3xl font-semibold">
               Enter in Pathway
@@ -112,9 +112,9 @@ export default function Auth() {
                 {isSubmitting ? (
                   <LoaderPinwheel size={22} className="animate-spin" />
                 ) : (
-                  <div>
-                    Send Magic Link
+                  <div className='flex items-center justify-center'>
                     <WandSparkles className="mr-2 h-4 w-4" />
+                    Send Magic Link
                   </div>
                 )}
               </Button>
