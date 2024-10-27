@@ -10,6 +10,7 @@ import { Drawer, DrawerContent, DrawerTrigger } from '@/components/ui/drawer'
 import { useScrolled } from '@/hooks/useScrolled'
 import { cn } from '@/lib/utils'
 import { PathwayLogo } from '@/components/pathway-logo'
+import ArrowButton from '../arrow-button'
 
 export const Header = () => {
   const { scrolled } = useScrolled({ initial: false })
@@ -21,7 +22,7 @@ export const Header = () => {
         scrolled && 'pointer-events-none'
       )}
     >
-      <div className="container flex h-full max-w-screen-2xl items-center">
+      <div className="container flex h-full max-w-screen-lg items-center">
         {/* Desktop Nav */}
         <div className="hidden w-full items-center justify-between md:flex">
           <div className="w-[130px]">
@@ -61,27 +62,7 @@ export const Header = () => {
             </Link>
             <Nav items={nav.links} />
             <Link href="/auth">
-              <button type='button' className="group flex h-8 items-center gap-2 rounded-full bg-neutral-200 pl-3 pr-4 transition-all duration-300 ease-in-out hover:bg-black hover:pl-2 hover:text-white active:bg-neutral-700">
-                <span className="rounded-full bg-black p-1 text-sm transition-colors duration-300 group-hover:bg-white">
-                  <svg
-                    stroke="currentColor"
-                    fill="none"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    className="-translate-x-[200%] text-[0px] transition-all duration-300 group-hover:translate-x-0 group-hover:text-lg group-hover:text-black group-active:-rotate-45"
-                    height="1em"
-                    width="1em"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <title>Arrow</title>
-                    <line x1="5" y1="12" x2="19" y2="12" />
-                    <polyline points="12 5 19 12 12 19" />
-                  </svg>
-                </span>
-                <span>Get Started</span>
-              </button>
+              <ArrowButton />
             </Link>
           </div>
           <div
@@ -117,7 +98,7 @@ export const Header = () => {
           </Link>
           <div className="flex items-center justify-center space-x-4">
             <Link href="/auth">
-              <button type='button' className="group flex h-8 items-center gap-2 rounded-full bg-neutral-200 pl-3 pr-4 transition-all duration-300 ease-in-out hover:bg-black hover:pl-2 hover:text-white active:bg-neutral-700">
+              <button type='button' className="group h-8 items-center flex gap-2 rounded-full bg-neutral-200 pl-3 pr-4 transition-all duration-300 ease-in-out hover:bg-black hover:pl-2 hover:text-white active:bg-neutral-700">
                 <span className="rounded-full bg-black p-1 text-sm transition-colors duration-300 group-hover:bg-white">
                   <svg
                     stroke="currentColor"
