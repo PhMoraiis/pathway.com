@@ -1,8 +1,7 @@
 'use client'
 
-import Dashboard from '@/components/dashboard'
 import { Header } from '@/components/header'
-import Navbar from '@/components/header/index'
+import Hero from '@/components/hero'
 
 export default function Home() {
   return (
@@ -11,8 +10,7 @@ export default function Home() {
     // </div>
     <>
       <Header />
-      <Dashboard />
-      <Dashboard />
+      <Hero />
     </>
   )
 }
