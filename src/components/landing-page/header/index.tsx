@@ -10,7 +10,7 @@ import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
 import { useScrolled } from "@/hooks/useScrolled";
 import { cn } from "@/lib/utils";
 import { PathwayLogo } from "@/components/pathway-logo";
-import ArrowButton from "../arrow-button";
+import ArrowButton from "@/components/arrow-button";
 
 export const Header = () => {
 	const { scrolled } = useScrolled({ initial: false });
@@ -22,7 +22,7 @@ export const Header = () => {
 				scrolled && "pointer-events-none",
 			)}
 		>
-			<div className="container flex h-full max-w-screen-xl items-center">
+			<div className="container flex items-center justify-center">
 				{/* Desktop Nav */}
 				<div className="hidden w-full items-center justify-between md:flex">
 					<div className="flex items-center justify-center">
@@ -40,11 +40,13 @@ export const Header = () => {
 								Pathway
 							</div>
 						</Link>
+					</div>
+					<div className="absolute lg:left-1/2 lg:-translate-x-1/2 flex justify-center md:left-1/3 md:-translate-x-1/3 md:text-sm">
 						<div
 							className={cn(
 								"relative flex items-center overflow-hidden rounded-md bg-transparent px-4 transition-[padding,background-color] duration-300 ease-out",
 								scrolled &&
-									"pointer-events-auto bg-bg-muted pl-14 shadow-lg bg-background/100",
+									"pointer-events-auto bg-bg-muted pl-14 shadow-xl bg-background/100",
 							)}
 						>
 							<Link
@@ -57,7 +59,7 @@ export const Header = () => {
 								aria-hidden={!scrolled}
 								tabIndex={scrolled ? undefined : -1}
 							>
-								<PathwayLogo width={20} height={20} />
+								<PathwayLogo width={25} height={25} />
 							</Link>
 							<Nav items={nav.links} />
 						</div>
@@ -76,12 +78,11 @@ export const Header = () => {
 						<Link href="/auth">
 							<Button
 								aria-label="Login"
-								className="bg-background border text-sm font-medium h-10 px-6 text-primary rounded-full shadow-md cursor-pointer hover:bg-primary hover:text-secondary duration-200 ease-in transition-all hover:border-primary"
+								className="bg-background border text-sm font-medium lg:h-10 lg:px-6 text-primary rounded-full shadow-md cursor-pointer hover:bg-primary hover:text-secondary duration-200 ease-in transition-all hover:border-primary md:text-sm md:px-4 md:h-8"
 							>
 								Entrar
 							</Button>
 						</Link>
-						{/* <ThemeToggle /> Ficará aqui */}
 					</div>
 				</div>
 				{/* Mobile nav */}
@@ -100,37 +101,14 @@ export const Header = () => {
 					</Link>
 					<div className="flex items-center justify-center space-x-4">
 						<Link href="/auth">
-							<button
-								type="button"
-								className="group h-8 items-center flex gap-2 rounded-full bg-neutral-200 pl-3 pr-4 transition-all duration-300 ease-in-out hover:bg-black hover:pl-2 hover:text-white active:bg-neutral-700"
-							>
-								<span className="rounded-full bg-black p-1 text-sm transition-colors duration-300 group-hover:bg-white">
-									<svg
-										stroke="currentColor"
-										fill="none"
-										strokeWidth="2"
-										viewBox="0 0 24 24"
-										strokeLinecap="round"
-										strokeLinejoin="round"
-										className="-translate-x-[200%] text-[0px] transition-all duration-300 group-hover:translate-x-0 group-hover:text-lg group-hover:text-black group-active:-rotate-45"
-										height="1em"
-										width="1em"
-										xmlns="http://www.w3.org/2000/svg"
-									>
-										<title>Arrow</title>
-										<line x1="5" y1="12" x2="19" y2="12" />
-										<polyline points="12 5 19 12 12 19" />
-									</svg>
-								</span>
-								<span>Get Started</span>
-							</button>
+							<ArrowButton />
 						</Link>
 						<Drawer>
 							<DrawerTrigger asChild>
 								<Button
-									size="icon"
-									variant="ghostWithHover"
+									variant="ghost"
 									aria-label="Open menu"
+									className="cursor-pointer"
 								>
 									<MenuIcon />
 								</Button>
@@ -204,7 +182,7 @@ const Nav = (props: NavProps) => {
 								pathname.startsWith(item.href) &&
 									item.href !== "/" &&
 									"bg-foreground/10 text-fg",
-								direction === "col" && "text-md w-full py-2",
+								direction === "row" && "text-md w-full py-2",
 							)}
 							href={item.href}
 							onClick={onNavItemClick}

@@ -35,35 +35,35 @@ export default function Auth() {
   } = useForm({
     resolver: zodResolver(magicLinkSchema),
   })
-  const { toast } = useToast()
+  // const { toast } = useToast()
   const router = useRouter()
 
-  const handleSubmitEmail = handleSubmit(async data => {
-    try {
-      await signIn('nodemailer', {
-        email: data.email,
-        redirect: false,
-      })
+  // const handleSubmitEmail = handleSubmit(async data => {
+  //   try {
+  //     await signIn('nodemailer', {
+  //       email: data.email,
+  //       redirect: false,
+  //     })
 
-      toast({
-        title: 'Magic link sent',
-        description:
-          'We sent you an email for the magic link login. Please check your inbox.',
-        variant: 'success',
-        action: <Check />,
-      })
+  //     toast({
+  //       title: 'Magic link sent',
+  //       description:
+  //         'We sent you an email for the magic link login. Please check your inbox.',
+  //       variant: 'success',
+  //       action: <Check />,
+  //     })
 
-      // @ts-ignore
-      document.getElementById('magic-link').reset()
-    } catch (error) {
-      toast({
-        title: 'Error sending magic link',
-        description: 'Something went wrong. Please try again later.',
-        variant: 'destructive',
-        action: <Ban />,
-      })
-    }
-  })
+  //     // @ts-ignore
+  //     document.getElementById('magic-link').reset()
+  //   } catch (error) {
+  //     toast({
+  //       title: 'Error sending magic link',
+  //       description: 'Something went wrong. Please try again later.',
+  //       variant: 'destructive',
+  //       action: <Ban />,
+  //     })
+  //   }
+  // })
 
   return (
     <div className="min-h-screen relative">
@@ -89,7 +89,9 @@ export default function Auth() {
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
-            <form id="magic-link" onSubmit={handleSubmitEmail}>
+            <form id="magic-link" 
+            // onSubmit={handleSubmitEmail}
+            >
               <div className="space-y-2">
                 <Label htmlFor="email" className="text-md font-semibold">
                   Email
@@ -122,7 +124,7 @@ export default function Auth() {
             <Separator />
             <div className="space-y-2">
               <Button
-                onClick={() => signIn('github')}
+                // onClick={() => signIn('github')}
                 variant="outline"
                 className="w-full"
               >
@@ -130,7 +132,7 @@ export default function Auth() {
                 Continue with GitHub
               </Button>
               <Button
-                onClick={() => signIn('google')}
+                // onClick={() => signIn('google')}
                 variant="outline"
                 className="w-full"
               >

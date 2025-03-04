@@ -2,7 +2,7 @@ function ArrowButton() {
   return (
     <button
       type="button"
-      className="group flex h-10 items-center gap-2 rounded-full bg-primary-dslight pl-3 pr-4 transition-all duration-300 ease-in-out hover:bg-foreground hover:pl-2 hover:text-background active:bg-neutral-700 cursor-pointer shadow-lg"
+      className="group flex h-8.5 lg:h-10 items-center gap-2 rounded-full bg-primary-dslight lg:pl-3 pl-3 pr-4 lg:pr-4 transition-all duration-300 ease-in-out hover:bg-foreground hover:pl-2 hover:text-background active:bg-neutral-700 cursor-pointer shadow-lg md:h-8 md:pl-2 md:pr-3 md:text-sm"
     >
       <span className="rounded-full bg-primary p-1 text-sm transition-colors duration-300 group-hover:bg-background">
         <svg
