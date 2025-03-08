@@ -22,7 +22,7 @@ const Customers = () => {
 
 	return (
 		<div className="flex flex-col items-center justify-center text-center py-20">
-			<h2 className="text-4xl sm:text-5xl font-coolvetica text-gray-900 leading-tight">
+			<h2 className="text-4xl sm:text-6xl font-coolvetica text-primary leading-tight">
 				Mais de{" "}
 				<span className="inline-flex items-center">
 					<AvatarCircles numPeople={99} avatarUrls={avatars} />
@@ -30,7 +30,7 @@ const Customers = () => {
 				usuários <br />
 				<span>já alcançaram suas metas financeiras</span>
 			</h2>
-			<p className="mt-4 max-w-2xl text-gray-600 text-lg">
+			<p className="mt-4 max-w-2xl text-primary/90 text-lg">
 				Junte-se a um montão de pessoas que utilizam nossa plataforma para
 				definir, acompanhar e atingir seus objetivos financeiros de forma
 				simples e divertida.

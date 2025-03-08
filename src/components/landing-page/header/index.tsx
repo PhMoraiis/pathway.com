@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
 import { PathwayLogo } from "@/components/pathway-logo";
 import ArrowButton from "@/components/arrow-button";
 
-export const Header = () => {
+export default function Header () {
 	const { scrolled } = useScrolled({ initial: false });
 
 	return (

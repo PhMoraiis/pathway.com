@@ -38,7 +38,7 @@ export default function Hero() {
 				<div className="flex flex-col items-center justify-center space-y-2 mt-4">
 					<Button
 						size="lg"
-						className="bg-primary text-secondary py-6 hover:bg-primary-dslight hover:text-primary duration-200 ease-in rounded-full cursor-pointer text-md font-semibold shadow-lg"
+						className="bg-primary text-secondary py-6 hover:bg-primary-dslight hover:text-primary transition-all duration-200 ease-in rounded-full cursor-pointer text-md font-semibold shadow-lg"
 					>
 						Comece gratuitamente
 						<ChevronRight strokeWidth={3} />
