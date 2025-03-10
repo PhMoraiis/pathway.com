@@ -1,6 +1,7 @@
 "use client";
 
 import Customers from "@/components/landing-page/customers";
+import FAQ from "@/components/landing-page/faq";
 import Features from "@/components/landing-page/features";
 import Header from "@/components/landing-page/header";
 import Hero from "@/components/landing-page/hero";
@@ -16,6 +17,7 @@ export default function Home() {
 			<Customers />
 			<Features />
 			<Numbers />
+			<FAQ />
 		</>
 	);
 }
