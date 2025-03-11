@@ -1,5 +1,6 @@
 "use client";
 
+import CTA from "@/components/landing-page/cta";
 import Customers from "@/components/landing-page/customers";
 import FAQ from "@/components/landing-page/faq";
 import Features from "@/components/landing-page/features";
@@ -18,6 +19,7 @@ export default function Home() {
 			<Features />
 			<Numbers />
 			<FAQ />
+			<CTA />
 		</>
 	);
 }
