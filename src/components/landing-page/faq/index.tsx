@@ -99,7 +99,7 @@ export default function FAQ() {
 									</div>
 								</AccordionTrigger>
 								<AccordionContent className="origin-left max-w-4xl">
-									<p className="pl-6 pr-2 text-zinc-500 dark:text-zinc-400">
+									<p className="pl-6 pr-2 text-muted-foreground">
 										{item.answer}
 									</p>
 								</AccordionContent>

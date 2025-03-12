@@ -57,6 +57,10 @@
 	--color-quinary-ds: var(--quinary-ds);
 
 	--font-coolvetica: "Coolvetica", sans-serif;
+	--font-lufga: "Lufga", sans-serif;
+	--font-lufgaMd: "Lufga Medium", sans-serif;
+	--font-lufgaBd: "Lufga Bold", sans-serif;
+	--font-lufgaLg: "Lufga Light", sans-serif;
 }
 
 /*
@@ -348,4 +352,24 @@
 @font-face {
 	font-family: "Coolvetica";
 	src: url("/fonts/coolveticaRG.woff");
+}
+
+@font-face {
+	font-family: "Lufga Bold";
+	src: url("/fonts/Lufga/lufga-bold.otf");
+}
+
+@font-face {
+	font-family: "Lufga Light";
+	src: url("/fonts/Lufga/lufga-light.otf");
+}
+
+@font-face {
+	font-family: "Lufga Medium";
+	src: url("/fonts/Lufga/lufga-medium.otf");
+}
+
+@font-face {
+	font-family: "Lufga";
+	src: url("/fonts/Lufga/lufga-regular.otf");
 }

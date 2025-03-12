@@ -30,7 +30,7 @@ const Customers = () => {
 				usuários <br />
 				<span>já alcançaram suas metas financeiras</span>
 			</h2>
-			<p className="mt-4 max-w-2xl text-primary/90 text-lg">
+			<p className="mt-4 max-w-2xl text-muted-foreground text-lg">
 				Junte-se a um montão de pessoas que utilizam nossa plataforma para
 				definir, acompanhar e atingir seus objetivos financeiros de forma
 				simples e divertida.

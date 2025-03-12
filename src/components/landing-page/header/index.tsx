@@ -36,7 +36,7 @@ export default function Header () {
 							aria-hidden={scrolled}
 						>
 							<PathwayLogo width={35} height={35} />
-							<div className="font-josephin whitespace-nowrap font-bold leading-normal tracking-tighter">
+							<div className="font-lufga whitespace-nowrap leading-normal tracking-tight text-lg">
 								Pathway
 							</div>
 						</Link>

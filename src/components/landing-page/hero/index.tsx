@@ -29,7 +29,7 @@ export default function Hero() {
 					<h1 className="text-5xl md:text-6xl lg:text-7xl font-coolvetica">
 						A Plataforma Financeira Que Muda Seu Caminho
 					</h1>
-					<p className="text-md font-semibold text-muted-foreground max-w-xl">
+					<p className="text-md font-semibold text-muted-foreground max-w-xl mt-4 text-md">
 						Gerencie suas finanças de forma simples. Alcance suas metas,
 						acompanhe ganhos, controle gastos e veja seu progresso em tempo
 						real.
