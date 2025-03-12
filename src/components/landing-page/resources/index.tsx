@@ -56,7 +56,7 @@ export default function Resources() {
 							className={`relative rounded-xl overflow-hidden border transition-all duration-500 cursor-pointer shadow-xl ${
 								activeStep === index
 									? `${step.color} text-accent-foreground`
-									: "bg-[#1F1F1F] text-[#7F7F7F]"
+									: "bg-[#1F1F1F] text-muted-foreground"
 							}`}
 							initial={{ opacity: 0.7, y: 20 }}
 							animate={{
@@ -74,7 +74,7 @@ export default function Resources() {
 								>
 									<span className="font-bold">{step.id}</span>
 								</div>
-								<h3 className="text-xl font-coolvetica mb-3">{step.title}</h3>
+								<h3 className="text-xl font-lufgaMd mb-3">{step.title}</h3>
 								<p className="mb-8">{step.description}</p>
 
 								<div className="mt-auto h-40 relative">

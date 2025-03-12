@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
 import { PathwayLogo } from "@/components/pathway-logo";
 import ArrowButton from "@/components/arrow-button";
 
-export default function Header () {
+export default function Header() {
 	const { scrolled } = useScrolled({ initial: false });
 
 	return (
@@ -126,7 +126,7 @@ export default function Header () {
 			</div>
 		</header>
 	);
-};
+}
 
 interface NavItem {
 	label: string;
@@ -150,12 +150,12 @@ const nav = {
 			href: "/features",
 		},
 		{
-			label: "Preços",
-			href: "/pricing",
-		},
-		{
 			label: "Recursos",
 			href: "/resources",
+		},
+		{
+			label: "Preços",
+			href: "/pricing",
 		},
 	],
 };

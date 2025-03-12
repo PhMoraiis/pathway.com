@@ -50,7 +50,7 @@ export default function Features() {
 											R$ 1.850,00
 										</span>
 									</div>
-									<div className="text-gray-500 text-sm">Fev 23, 2024</div>
+									<div className="text-muted-foreground text-sm">Fev 23, 2024</div>
 								</div>
 
 								<div className="bg-white p-4 rounded-lg shadow-xl">
@@ -69,7 +69,7 @@ export default function Features() {
 											R$ 2.450,00
 										</span>
 									</div>
-									<div className="text-gray-500 text-sm">Fev 20, 2024</div>
+									<div className="text-muted-foreground text-sm">Fev 20, 2024</div>
 								</div>
 							</div>
 
@@ -142,7 +142,7 @@ export default function Features() {
 								<div className="bg-white p-4 rounded-lg flex items-center justify-between shadow-xl">
 									<div className="flex items-center gap-3">
 										<div className="w-5 h-5 rounded-full border-2 border-gray-300 flex items-center justify-center">
-											<div className="w-3 h-3 rounded-full bg-gray-500" />
+											<div className="w-3 h-3 rounded-full bg-muted-foreground text-muted-foreground" />
 										</div>
 										<div className="w-8 h-8 flex items-center">
 											<div className="flex items-center justify-center w-8 h-5 bg-red-500 rounded-md">
@@ -153,7 +153,7 @@ export default function Features() {
 											<div className="font-medium text-[#18181b]">
 												Mastercard
 											</div>
-											<div className="text-gray-500 text-xs">Expires 12/23</div>
+											<div className="text-muted-foreground text-xs">Expires 12/23</div>
 										</div>
 									</div>
 								</div>
@@ -170,7 +170,7 @@ export default function Features() {
 											<div className="font-medium text-[#18181b]">
 												Bank Transfer
 											</div>
-											<div className="text-gray-500 text-xs">
+											<div className="text-muted-foreground text-xs">
 												ACH (free, 3-5 days)
 											</div>
 										</div>

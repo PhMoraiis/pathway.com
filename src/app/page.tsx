@@ -9,6 +9,7 @@ import Header from "@/components/landing-page/header";
 import Hero from "@/components/landing-page/hero";
 import Movie from "@/components/landing-page/movie";
 import Features from "@/components/landing-page/features";
+import Pricing from "@/components/landing-page/pricing";
 
 export default function Home() {
 	return (
@@ -19,6 +20,7 @@ export default function Home() {
 			<Customers />
 			<Features />
 			<Resources />
+			<Pricing />
 			<FAQ />
 			<CTA />
 			<Footer />
