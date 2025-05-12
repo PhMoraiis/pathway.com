@@ -22,6 +22,7 @@ export function useElasticLineEvents(
     y: dimensions.height / 2,
   })
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
     if (containerRef.current) {
       const { width, height } = dimensions

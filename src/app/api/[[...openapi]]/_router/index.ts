@@ -1,10 +1,10 @@
 import { createOpenApiServerActionRouter } from 'zsa-openapi'
 import { usersRouter } from './users'
-import { goalsRouter } from './goals'
+// import { goalsRouter } from './goals'
 
 export const router = createOpenApiServerActionRouter({
   pathPrefix: '/api',
-  extend: [usersRouter, goalsRouter ],
+  extend: [usersRouter ],
   defaults: {
     contentTypes: ['application/json'],
   }

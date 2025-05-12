@@ -24,13 +24,7 @@ export default function Dashboard() {
           <Button variant="outline" className="mt-4">
             Add Product
           </Button>
-          <Button variant="success" className="mt-4">
-            Add Product
-          </Button>
           <Button variant="destructive" className="mt-4">
-            Add Product
-          </Button>
-          <Button variant="warning" className="mt-4">
             Add Product
           </Button>
           <Button variant="ghost" className="mt-4">

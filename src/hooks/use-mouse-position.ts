@@ -1,4 +1,4 @@
-import { RefObject, useEffect, useState } from "react"
+import { type RefObject, useEffect, useState } from "react"
 
 export const useMousePosition = (
   containerRef?: RefObject<HTMLElement | SVGElement>
@@ -7,7 +7,7 @@ export const useMousePosition = (
 
   useEffect(() => {
     const updatePosition = (x: number, y: number) => {
-      if (containerRef && containerRef.current) {
+      if (containerRef?.current) {
         const rect = containerRef.current.getBoundingClientRect()
         const relativeX = x - rect.left
         const relativeY = y - rect.top
